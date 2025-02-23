@@ -1,0 +1,98 @@
+{
+  "$ref": "#/definitions/RenderControllerJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "RenderControllerJSON": { "type": "object",
+      "properties": {
+        "format_version": { "type": "string" },
+        "render_controllers": { "type": "object",
+          "additionalProperties": { "type": "object",
+            "properties": {
+              "arrays": { "type": "object",
+                "properties": {
+                  "geometries": {
+                    "additionalProperties": { "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "materials": {
+                    "additionalProperties": { "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "textures": {
+                    "additionalProperties": { "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "color": { "type": "object",
+                "properties": {
+                  "r": { "type": [ "number", "string" ] },
+                  "g": { "type": [ "number", "string" ] },
+                  "b": { "type": [ "number", "string" ] },
+                  "a": { "type": [ "number", "string" ] }
+                }
+              },
+              "filter_lighting": { "type": "boolean" },
+              "geometry": { "type": "string" },
+              "ignore_lighting": { "type": "boolean" },
+              "is_hurt_color": { "type": "object",
+                "properties": {
+                  "r": { "type": [ "number", "string" ] },
+                  "g": { "type": [ "number", "string" ] },
+                  "b": { "type": [ "number", "string" ] },
+                  "a": { "type": [ "number", "string" ] }
+                }
+              },
+              "light_color_multiplier": { "type": "string" },
+              "materials": { "type": "array",
+                "items": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                }
+              },
+              "on_fire_color": { "type": "object",
+                "properties": {
+                  "r": { "type": [ "number", "string" ] },
+                  "g": { "type": [ "number", "string" ] },
+                  "b": { "type": [ "number", "string" ] },
+                  "a": { "type": [ "number", "string" ] }
+                }
+              },
+              "overlay_color": { "type": "object",
+                "properties": {
+                  "r": { "type": [ "number", "string" ] },
+                  "g": { "type": [ "number", "string" ] },
+                  "b": { "type": [ "number", "string" ] },
+                  "a": { "type": [ "number", "string" ] }
+                }
+              },
+              "part_visibility": { "type": "array",
+                "items": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                }
+              },
+              "textures": { "type": "array",
+                "items": { "type": "string" }
+              },
+              "uv_anim": { "type": "object",
+                "properties": {
+                  "offset": { "type": "array",
+                    "items": { "type": [ "number", "string" ] },
+                    "maxItems": 2
+                  },
+                  "scale": { "type": "array",
+                    "items": { "type": [ "number", "string" ] },
+                    "maxItems": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [ "format_version", "render_controllers" ]
+    }
+  }
+}

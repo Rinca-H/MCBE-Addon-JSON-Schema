@@ -1,0 +1,95 @@
+{
+  "$ref": "#/definitions/ClientEntityJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ClientEntityJSON": { "type": "object",
+      "properties": {
+        "format_version": { "type": "string" },
+        "minecraft:client_entity": { "type": "object",
+          "properties": {
+            "description": {
+              "type": "object",
+              "properties": {
+                "identifier": { "type": "string" },
+                "min_engine_version": { "type": "string" },
+                "materials": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "textures": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "geometry": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "queryable_geometry": { "type": "boolean" },
+                "spawn_egg": { "type": "object",
+                  "properties": {
+                    "base_color": { "type": "string" },
+                    "overlay_color": { "type": "string" },
+                    "texture": { "type": "string" }
+                  }
+                },
+                "particle_effects": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "particle_emitters": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "sound_effects": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "scripts": { "type": "object",
+                  "properties": {
+                    "variables": { "type": "object",
+                      "additionalProperties": { "type": "string", "enum": [ "public" ] }
+                    },
+                    "initialize": { "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "pre_animation": { "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "scale": { "type": "string" },
+                    "scaleX": { "type": "string" },
+                    "scaleY": { "type": "string" },
+                    "scaleZ": { "type": "string" },
+                    "parent_setup": { "type": "string" },
+                    "animate": { "type": "array",
+                      "items": {
+                        "anyOf": [
+                          { "type": "string" },
+                          { "type": "object",
+                            "additionalProperties": { "type": "string" }
+                          }
+                        ]
+                      }
+                    },
+                    "should_update_bones_and_effects_offscreen": { "type": "string" },
+                    "should_update_effects_offscreen": { "type": "string" }
+                  }
+                },
+                "animations": { "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "render_controllers": { "type": "array",
+                  "items": {
+                    "anyOf": [
+                      { "type": "string" },
+                      { "type": "object",
+                        "additionalProperties": { "type": "string" }
+                      }
+                    ]
+                  }
+                },
+                "enable_attachables": { "type": "boolean" },
+                "hide_armor": { "type": "boolean" },
+                "item": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "required": [ "format_version", "minecraft:client_entity" ]
+    }
+  }
+}

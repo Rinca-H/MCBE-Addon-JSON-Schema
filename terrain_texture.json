@@ -1,0 +1,29 @@
+{
+  "$ref": "#/definitions/TerrainTextureJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "TerrainTextureJSON": { "type": "object",
+      "properties": {
+        "num_mip_levels": { "type": "number" },
+        "padding": { "type": "number" },
+        "resource_pack_name": { "type": "string" },
+        "texture_name": { "type": "string" },
+        "texture_data": { "type": "object",
+          "additionalProperties": { "type": "object",
+            "properties": {
+              "textures": {
+                "anyOf": [
+                  { "type": "string" },
+                  {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

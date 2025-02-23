@@ -1,0 +1,37 @@
+{
+  "$ref": "#/definitions/AnimationControllerJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AnimationControllerJSON": { "type": "object",
+      "properties": {
+        "format_version": { "type": "string" },
+        "animation_controllers": { "type": "object",
+          "additionalProperties": { "type": "object",
+            "properties": {
+              "initial_state": { "type": "string" },
+              "states": { "type": "object",
+                "additionalProperties": { "type": "object",
+                  "properties": {
+                    "on_entry": { "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "transitions": { "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": { "type": "string" }
+                      }
+                    },
+                    "on_exit": { "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [ "format_version", "animation_controllers" ]
+    }
+  }
+}

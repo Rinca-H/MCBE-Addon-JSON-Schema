@@ -1,0 +1,134 @@
+{
+  "$ref": "#/definitions/BlocksJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "BlocksJSON": { "type": "object",
+      "properties": {
+        "format_version": { "type": "array",
+          "items": { "type": "number" },
+          "maxItems": 3
+        }
+      },
+      "additionalProperties": { "type": "object",
+        "properties": {
+          "brightness_gamma": { "type": "number" },
+          "carried_textures": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "object",
+                "properties": {
+                  "down": { "type": "string" },
+                  "east": { "type": "string" },
+                  "north": { "type": "string" },
+                  "south": { "type": "string" },
+                  "up": { "type": "string" },
+                  "west": { "type": "string" },
+                  "side": { "type": "string" }
+                }
+              }
+            ]
+          },
+          "isotropic": { "type": "boolean" },
+          "sound": { "$ref": "#/definitions/SoundEnum" },
+          "textures": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "object",
+                "properties": {
+                  "down": { "type": "string" },
+                  "east": { "type": "string" },
+                  "north": { "type": "string" },
+                  "south": { "type": "string" },
+                  "up": { "type": "string" },
+                  "west": { "type": "string" },
+                  "side": { "type": "string" }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+
+    "SoundEnum": {
+      "type": "string",
+      "enum": [
+        "wood",
+        "stone",
+        "metal",
+        "glass",
+        "grass",
+        "gravel",
+        "sand",
+        "scaffolding",
+        "amethyst_cluster",
+        "amethyst_block",
+        "large_amethyst_bud",
+        "big_dripleaf",
+        "frog_spawn",
+        "itemframe",
+        "anvil",
+        "packed_mud",
+        "fungus",
+        "stem",
+        "tuff",
+        "cave_vines",
+        "basalt",
+        "moss_carpet",
+        "moss_block",
+        "ancient_debris",
+        "powder_snow",
+        "comparator",
+        "coral",
+        "shroomlight",
+        "pointed_dripstone",
+        "dripstone_block",
+        "sweet_berry_bush",
+        "sculk",
+        "sculk_catalyst",
+        "sculk_shrieker",
+        "sculk_sensor",
+        "sculk_vein",
+        "slime",
+        "soul_sand",
+        "soul_soil",
+        "bamboo",
+        "bamboo_sapling",
+        "smallamethyst_bud",
+        "chain",
+        "vines",
+        "azalea",
+        "azalea_leaves",
+        "deepslate",
+        "deepslate_bricks",
+        "copper",
+        "muddy_mangrove_roots",
+        "mud",
+        "mud_bricks",
+        "nylium",
+        "roots",
+        "dirt_with_roots",
+        "nether_wart",
+        "nether_gold_ore",
+        "nether_sprouts",
+        "netherrack",
+        "nether_brick",
+        "ntherite",
+        "ladder",
+        "honey_block",
+        "medium_amethyst_bud",
+        "hanging_roots",
+        "froglight",
+        "calcite",
+        "spore_blossom",
+        "bone_block",
+        "mangrove_roots",
+        "snow",
+        "cloth",
+        "lantern",
+        "candle",
+        "lodestone"
+      ]
+    }
+  }
+}

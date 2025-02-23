@@ -1,0 +1,339 @@
+{
+  "$ref": "#/definitions/ItemJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ItemJSON": { "type": "object",
+      "properties": {
+        "format_version": { "type": "string" },
+        "minecraft:item": { "type": "object",
+          "properties": {
+            "description": { "type": "object",
+              "properties": {
+                "identifier": { "type": "string", "default": "namespace:my_item" },
+                "menu_category": { "type": "object",
+                  "properties": {
+                    "category": { "type": "string",
+                      "enum": [ "construction", "nature", "equipment", "items", "none" ]
+                    },
+                    "group": { "type": "string" },
+                    "is_hidden_in_commands": { "type": "boolean", "default": false }
+                  }
+                }
+              },
+              "required": [ "identifier" ]
+            },
+            "components": { "$ref": "#/definitions/ItemComponents" },
+            "events": { "type": "object" }
+          }
+        }
+      },
+      "required": [ "format_version", "minecraft:item" ]
+    },
+
+    "ItemComponents": { "type": "object",
+      "properties": {
+        "minecraft:allow_off_hand": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              }
+            }
+          ],
+          "default": true
+        },
+        "minecraft:block_placer": { "type": "object",
+          "properties": {
+            "block": { "type": "string" },
+            "use_on": { "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": [ "block" ]
+        },
+        "minecraft:can_destroy_in_creative": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              },
+              "required": [ "value" ]
+            }
+          ],
+          "default": true
+        },
+        "minecraft:cooldown": { "type": "object",
+          "properties": {
+            "category": { "type": "string" },
+            "duration": { "type": "number" }
+          },
+          "required": [ "category", "duration" ]
+        },
+        "minecraft:damage": {
+          "anyOf": [
+            { "type": "number" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "number" }
+              }
+            }
+          ]
+        },
+        "minecraft:digger": { "type": "object",
+          "properties": {
+            "dstroy_speeds": { "type": "array",
+              "items": { "type": "object",
+                "properties": {
+                  "block": {
+                    "type": "object",
+                    "properties": {
+                      "tags": { "type": "string" }
+                    }
+                  },
+                  "speed": { "type": "number" }
+                },
+                "required": [ "block", "speed" ]
+              }
+            },
+            "use_efficiency": { "type": "boolean" }
+          }
+        },
+        "minecraft:display_name": { "type": "object",
+          "properties": {
+            "value": { "type": "string" }
+          },
+          "required": [ "value" ]
+        },
+        "minecraft:durability": { "type": "object",
+          "properties": {
+            "damage_chance": { "type": "object",
+              "properties": {
+                "min": { "type": "number" },
+                "max": { "type": "number" }
+              }
+            },
+            "max_durability": { "type": "number" }
+          }
+        },
+        "minecraft:enchantable": { "type": "object",
+          "properties": {
+            "slot": { "$ref": "#/definitions/EnchantTypeEnum" },
+            "value": { "type": "number" }
+          }
+        },
+        "minecraft:entity_placer": { "type": "object",
+          "properties": {
+            "entity": { "type": "string" },
+            "dispense_on": { "type": "array", "items": { "type": "string" } },
+            "use_on": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": [ "entity" ]
+        },
+        "minecraft:food": { "type": "object",
+          "properties": {
+            "can_always_eat": { "type": "boolean" },
+            "nutrition": { "type": "number" },
+            "saturation_modifier": { "type": "number" },
+            "using_converts_to": { "type": "string" }
+          }
+        },
+        "minecraft:fuel": { "type": "object",
+          "properties": {
+            "duration": { "type": "number" }
+          },
+          "required": [ "duration" ]
+        },
+        "minecraft:glint": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              },
+              "required": [ "value" ]
+            }
+          ],
+          "default": false
+        },
+        "minecraft:hand_equipped": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              },
+              "required": [ "value" ]
+            }
+          ],
+          "default": false
+        },
+        "minecraft:hover_text_color": { "type": "string" },
+        "minecraft:icon": { "type": "object",
+          "properties": {
+            "texture": { "type": "string" }
+          },
+          "required": [ "texture" ]
+        },
+        "minecraft:interact_button": { "type": "string" },
+        "minecraft:item_storage": { "type": "object", "additionalProperties": false },
+        "minecraft:liquid_clipped": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              },
+              "required": [ "value" ]
+            }
+          ],
+          "default": false
+        },
+        "minecraft:max_stack_size": {
+          "anyOf": [
+            { "type": "number" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "number" }
+              },
+              "required": [ "value" ]
+            }
+          ],
+          "default": 64
+        },
+        "minecraft:projectile": { "type": "object",
+          "properties": {
+            "minimum_critical_power": { "type": "number" },
+            "projectile_entity": { "type": "string" }
+          }
+        },
+        "minecraft:record": { "type": "object",
+          "properties": {
+            "comparator_signal": { "type": "number" },
+            "duration": { "type": "number" },
+            "sound_event": { "type": "string" }
+          }
+        },
+        "minecraft:repairable": { "type": "object",
+          "properties": {
+            "on_repaired": { "type": "string" },
+            "repair_items": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "minecraft:shooter": { "type": "object",
+          "properties": {
+            "ammunition": { "type": "array",
+              "items": { "type": "object",
+                "properties": {
+                  "item": { "type": "string" },
+                  "search_inventory": { "type": "boolean" },
+                  "use_in_creative": { "type": "boolean" },
+                  "use_offhand": { "type": "boolean" }
+                }
+              }
+            },
+            "charge_on_draw": { "type": "boolean" },
+            "max_draw_duration": { "type": "number" },
+            "scale_power_by_draw_duration": { "type": "boolean" }
+          }
+        },
+        "minecraft:should_despawn": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              },
+              "required": [ "value" ]
+            }
+          ],
+          "default": true
+        },
+        "minecraft:stacked_by_data": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "object",
+              "properties": {
+                "value": { "type": "boolean" }
+              },
+              "required": [ "value" ]
+            }
+          ]
+        },
+        "minecraft:tags": { "type": "object",
+          "properties": {
+            "tags": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": [ "tags" ]
+        },
+        "minecraft:throwable": { "type": "object",
+          "properties": {
+            "do_swing_animation": { "type": "boolean" },
+            "launch_power_scale": { "type": "number" },
+            "max_draw_duration": { "type": "number" },
+            "max_launch_power": { "type": "number" },
+            "min_draw_duration": { "type": "number" },
+            "scale_power_by_draw_duration": { "type": "boolean" }
+          }
+        },
+        "minecraft:use_animation": { "type": "string", "const": "eat" },
+        "minecraft:use_modifiers": {
+          "type": "object",
+          "properties": {
+            "movement_modifier": { "type": "number" },
+            "use_duration": { "type": "number" }
+          }
+        },
+        "minecraft:wearable": {
+          "type": "object",
+          "properties": {
+            "protection": { "type": "number" },
+            "slot": { "$ref": "#/definitions/EquipmentSlotEnum" }
+          }
+        }
+      }
+    },
+
+    "EnchantTypeEnum": { "type": "string",
+      "enum": [
+        "armor_feet",
+        "armor_torso",
+        "armor_head",
+        "armor_legs",
+        "axe",
+        "bow",
+        "cosmetic_head",
+        "crossbow",
+        "elytra",
+        "fishing_rod",
+        "flintsteel",
+        "hoe",
+        "pickaxe",
+        "shears",
+        "shield",
+        "shovel",
+        "sword",
+        "all"
+      ]
+    },
+
+    "EquipmentSlotEnum": { "type": "string",
+      "enum": [
+        "slot.weapon.mainhand",
+        "slot.weapon.offhand",
+        "slot.armor.head",
+        "slot.armor.chest",
+        "slot.armor.legs",
+        "slot.armor.feet",
+        "slot.hotbar",
+        "slot.inventory",
+        "slot.enderchest",
+        "slot.saddle",
+        "slot.armor",
+        "slot.chest",
+        "slot.equippable"
+      ]
+    }
+  }
+}

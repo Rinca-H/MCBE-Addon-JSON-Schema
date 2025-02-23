@@ -1,0 +1,743 @@
+{
+  "$ref": "#/definitions/BlockJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "BlockJSON": {
+      "additionalProperties": false,
+      "properties": {
+        "format_version": {
+          "type": "string"
+        },
+        "minecraft:block": {
+          "additionalProperties": false,
+          "properties": {
+            "components": {
+              "additionalProperties": false,
+              "properties": {
+                "minecraft:collision_box": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "origin": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "size": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                },
+                "minecraft:crafting_table": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "crafting_tags": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "table_name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "minecraft:custom_components": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "minecraft:destructible_by_explosion": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "explosion_resistance": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                },
+                "minecraft:destructible_by_mining": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "seconds_to_destroy": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                },
+                "minecraft:display_name": {
+                  "type": "string"
+                },
+                "minecraft:flammable": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "catch_chance_modifier": {
+                          "type": "number"
+                        },
+                        "destroy_chance_modifier": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                },
+                "minecraft:friction": {
+                  "type": "number"
+                },
+                "minecraft:geometry": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "bone_visibility": {
+                          "additionalProperties": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "boolean"
+                              }
+                            ]
+                          },
+                          "type": "object"
+                        },
+                        "identifier": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    { "type": "string" }
+                  ]
+                },
+                "minecraft:light_dampening": {
+                  "type": "number"
+                },
+                "minecraft:light_emission": {
+                  "type": "number"
+                },
+                "minecraft:loot": {
+                  "type": "string"
+                },
+                "minecraft:map_color": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "minecraft:material_instances": {
+                  "additionalProperties": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "ambient_occlusion": {
+                        "type": "boolean"
+                      },
+                      "face_dimming": {
+                        "type": "boolean"
+                      },
+                      "render_method": {
+                        "enum": [
+                          "opaque",
+                          "double_sided",
+                          "blend",
+                          "alpha_test"
+                        ],
+                        "type": "string"
+                      },
+                      "texture": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                },
+                "minecraft:placement_filter": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "allowed_faces": {
+                      "items": {
+                        "enum": [
+                          "up",
+                          "down",
+                          "north",
+                          "south",
+                          "east",
+                          "west",
+                          "side"
+                        ],
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "block_filter": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "states": {
+                            "items": {
+                              "additionalProperties": {
+                                "type": [
+                                  "boolean",
+                                  "number",
+                                  "string"
+                                ]
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "tags": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "minecraft:selection_box": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "origin": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "size": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                },
+                "minecraft:transformation": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "rotation": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "rotation_pivot": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "scale": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "scale_pivot": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "translation": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "description": {
+              "additionalProperties": false,
+              "properties": {
+                "identifier": {
+                  "type": "string"
+                },
+                "menu_category": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "category": {
+                      "enum": [
+                        "construction",
+                        "nature",
+                        "equipment",
+                        "items",
+                        "none"
+                      ],
+                      "type": "string"
+                    },
+                    "group": {
+                      "type": "string"
+                    },
+                    "is_hidden_in_commands": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "states": {
+                  "additionalProperties": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "boolean"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "items": {
+                          "type": "number"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "identifier"
+              ],
+              "type": "object"
+            },
+            "events": {
+              "additionalProperties": {
+                "additionalProperties": {
+                  "type": "object"
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "permutations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "components": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "minecraft:collision_box": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "origin": {
+                                "items": {
+                                  "type": "number"
+                                },
+                                "maxItems": 3,
+                                "minItems": 3,
+                                "type": "array"
+                              },
+                              "size": {
+                                "items": {
+                                  "type": "number"
+                                },
+                                "maxItems": 3,
+                                "minItems": 3,
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "minecraft:crafting_table": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "crafting_tags": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "table_name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "minecraft:custom_components": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "minecraft:destructible_by_explosion": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "explosion_resistance": {
+                                "type": "number"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "minecraft:destructible_by_mining": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "seconds_to_destroy": {
+                                "type": "number"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "minecraft:display_name": {
+                        "type": "string"
+                      },
+                      "minecraft:flammable": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "catch_chance_modifier": {
+                                "type": "number"
+                              },
+                              "destroy_chance_modifier": {
+                                "type": "number"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "minecraft:friction": {
+                        "type": "number"
+                      },
+                      "minecraft:geometry": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "bone_visibility": {
+                                "additionalProperties": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                },
+                                "type": "object"
+                              },
+                              "identifier": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          { "type": "string" }
+                        ]
+                      },
+                      "minecraft:light_dampening": {
+                        "type": "number"
+                      },
+                      "minecraft:light_emission": {
+                        "type": "number"
+                      },
+                      "minecraft:loot": {
+                        "type": "string"
+                      },
+                      "minecraft:map_color": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          }
+                        ]
+                      },
+                      "minecraft:material_instances": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "ambient_occlusion": {
+                              "type": "boolean"
+                            },
+                            "face_dimming": {
+                              "type": "boolean"
+                            },
+                            "render_method": {
+                              "enum": [
+                                "opaque",
+                                "double_sided",
+                                "blend",
+                                "alpha_test"
+                              ],
+                              "type": "string"
+                            },
+                            "texture": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "object"
+                      },
+                      "minecraft:placement_filter": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "allowed_faces": {
+                            "items": {
+                              "enum": [
+                                "up",
+                                "down",
+                                "north",
+                                "south",
+                                "east",
+                                "west",
+                                "side"
+                              ],
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "block_filter": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "states": {
+                                  "items": {
+                                    "additionalProperties": {
+                                      "type": [
+                                        "boolean",
+                                        "number",
+                                        "string"
+                                      ]
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                },
+                                "tags": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "minecraft:selection_box": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "origin": {
+                                "items": {
+                                  "type": "number"
+                                },
+                                "maxItems": 3,
+                                "minItems": 3,
+                                "type": "array"
+                              },
+                              "size": {
+                                "items": {
+                                  "type": "number"
+                                },
+                                "maxItems": 3,
+                                "minItems": 3,
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "minecraft:transformation": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "rotation": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          },
+                          "rotation_pivot": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          },
+                          "scale": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          },
+                          "scale_pivot": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          },
+                          "translation": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "condition": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "components",
+                  "condition"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "description",
+            "components"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "format_version",
+        "minecraft:block"
+      ],
+      "type": "object"
+    }
+  }
+}

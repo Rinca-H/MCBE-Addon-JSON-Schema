@@ -1,0 +1,58 @@
+{
+  "$ref": "#/definitions/AnimationControllerJSON",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AnimationControllerJSON": { "type": "object",
+      "properties": {
+        "format_version": { "type": "string" },
+        "animation_controllers": { "type": "object",
+          "additionalProperties": { "type": "object",
+            "properties": {
+              "initial_state": { "type": "string" },
+              "states": { "type": "object",
+                "additionalProperties": { "type": "object",
+                  "properties": {
+                    "animations": { "type": "array",
+                      "items": {
+                        "anyOf": [
+                          { "type": "string" },
+                          { "type": "object",
+                            "additionalProperties": { "type": "string" }
+                          }
+                        ]
+                      }
+                    },
+                    "transitions": { "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": { "type": "string" }
+                      }
+                    },
+                    "particle_effects": { "type": "array",
+                      "items": { "type": "object",
+                        "properties": {
+                          "effect": { "type": "string" },
+                          "locator": { "type": "string" },
+                          "pre_effect_script": { "type": "string" },
+                          "bind_to_actor": { "type": "boolean" }
+                        }
+                      } 
+                    },
+                    "sound_effects": { "type": "array",
+                      "items": { "type": "object",
+                        "properties": {
+                          "effect": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [ "format_version", "animation_controllers" ]
+    }
+  }
+}
