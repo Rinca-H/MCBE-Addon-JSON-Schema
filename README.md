@@ -122,3 +122,6 @@ VSCodeで文字を入力すると補完されるやつ。<br>
 |`manifest.json`|マニフェスト|
 |`rencon.json`|レンダーコントローラ|
 |`terrain_texture.json`|terrain_texture.json|
+
+## 参考
+- [JSON Schema を自作して、 VSCode で補完させたい - なつねこメモ](https://tech.natsuneko.blog/entry/2022/07/16/create-own-json-schema-with-vscode)
